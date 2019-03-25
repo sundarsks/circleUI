@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <script src="circle.js" ></script>
+        <script>
+            var c = new Circle(0,0,0);
+            function updateModel(){
+                var s1 = window.document.forms[0].elements[0].value;
+                var s2 = window.document.forms[0].elements[1].value;
+                var s3 = window.document.forms[0].elements[2].value;
+
+               var n1  =  parseInt(s1);
+               var n2  =  parseInt(s2);
+               var n3  =  parseInt(s3);
+
+               if(isNaN(n1) || isNaN(n2)||isNaN(n3)) {
+                   return;
+               }
+               c.setRadius(n1);
+               c.setX(n2);
+               c.sety(n3);
+             res1 = c.getArea();
+             res2 = c.getCirFerence();
+             updateUI();
+
+            }
+
+            function updateUI(){
+                window.document.getElementById("td3").innerText = res1;
+                window.document.getElementById("td4").innerText = res2;
+                window.document.getElementById("td1").innerText = c.getArea();
+                window.document.getElementById("td2").innerText = c.getx();
+                window.document.getElementById("td5").innerText = c.gety();
+            }
+            
+            </script>
+        </head>
+    </head>
+    <body>
+        <form>
+<lable>Radius</lable>
+<input type="text"> </input>
+<br>
+<lable>X co ordinates</lable>
+<input type="text"> </input>
+<br>
+<lable>y Co ordinates</lable>
+<input type="text"> </input>
+<br>
+
+
+<button type="button" onclick="updateModel()" >findRadius </button>
+
+<table>
+    <tr>
+        <td>MidPoint X </td>
+        <td id="td1"></td>
+    </tr>
+    <tr>
+            <td>MidPoint y </td>
+            <td id="td5"></td>
+        </tr>
+    <tr>
+            <td>Radius</td>
+            <td id="td2"></td>
+        </tr>
+        <tr>
+                <td>Area </td>
+                <td id="td3"></td>
+            </tr>
+
+            <tr>
+                    <td>Circumference </td>
+                    <td id="td4"></td>
+                </tr>
+  </table>
+        </form>
+    </body>
+    </html>
